@@ -1,21 +1,34 @@
 const http = require("http");
+const fs = require("fs");
 
 const server = http.createServer((req, rep) => {
   const url = req.url;
+  const method = req.method; // pour verfier si cest la bonne methode ou pas ('POST' ou 'GET')
   if (url === "/") {
     rep.write("<html>");
     rep.write("<head><title>message</title><head>");
     rep.write(
-      "<body><form action='/messge' methode><input type = 'text'> <button type='submit'>envoyer</button></form></body>"
+      '<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>'
     );
     rep.write("</html>");
+    return rep.end();
+  }
+
+  if (url === "/message" && method === "POST") {
+    const body = [];
+    req.on("data", (chunk) => {
+      body.push(chunk);
+      console.log(body);
+    });
+    fs.writeFileSync("message.txt", "yacine");
+    rep.statusCode = 302; // code de redirection
+    rep.setHeader("Location", "/");
     return rep.end();
   }
   rep.setHeader("Cotent-Type", "text/html"); // le type du contenu de la reponse est html
   rep.write("<html>");
   rep.write("<head><title> reponse serveur </title><head>");
   rep.write("<body><h1> Helle world de serveur node.js <h1></body>");
-  rep.write("<body><h2> Helle world de serveur node.js <h2></body>");
   rep.write("</html>");
   rep.end();
 });
