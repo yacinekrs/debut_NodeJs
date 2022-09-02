@@ -9,7 +9,6 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log("le deuxieme middelware");
-  next();
 });
 const server = http.createServer(app);
 
