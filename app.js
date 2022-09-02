@@ -3,12 +3,13 @@ const express = require("express");
 const app = express();
 
 app.use((req, res, next) => {
-  console.log("le premier middelwar");
+  console.log("le premier middelware");
   next(); //permet de continuer vers le prochain middelwar
 });
 
 app.use((req, res, next) => {
-  console.log("le deuxieme middelwar");
+  console.log("le deuxieme middelware");
+  next();
 });
 const server = http.createServer(app);
 
