@@ -8,7 +8,9 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
+  //use nous permet d'ajouter une nouvelle fonction middelware
   console.log("le deuxieme middelware");
+  res.send("<h1> hello from express<h1>");
 });
 const server = http.createServer(app);
 
