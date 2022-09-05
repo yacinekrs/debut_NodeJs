@@ -2,14 +2,20 @@ const http = require("http");
 const express = require("express");
 const app = express();
 
-app.use((req, res, next) => {
+app.use("/", (req, res, next) => {
   console.log("le premier middelware");
   next(); //permet de continuer vers le prochain middelwar
 });
 
-app.use((req, res, next) => {
+app.use("/production", (req, res, next) => {
   //use nous permet d'ajouter une nouvelle fonction middelware
-  console.log("le deuxieme middelware");
+  console.log(" le deuxieme middelware");
+  res.send("<h1> page de production <h1>");
+});
+
+app.use("/", (req, res, next) => {
+  //use nous permet d'ajouter une nouvelle fonction middelware
+  console.log("le troisieme middelware");
   res.send("<h1> hello from express<h1>");
 });
 
