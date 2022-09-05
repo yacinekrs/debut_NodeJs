@@ -12,6 +12,7 @@ app.use((req, res, next) => {
   console.log("le deuxieme middelware");
   res.send("<h1> hello from express<h1>");
 });
-const server = http.createServer(app);
 
-server.listen(3000);
+app.listen(3000); // il configure le serveur et le mets a l ecoute au meme temps
+// const server = http.createServer(app);
+// server.listen(3000);
