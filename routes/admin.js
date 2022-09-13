@@ -11,7 +11,6 @@ router.get("/ajout-produit", (req, res, next) => {
 });
 
 // elle est atteinte que par /admin/ajout-produit => post
-
 router.post("/ajout-produit", (req, res, next) => {
   console.log(req.body);
   res.redirect("/");
