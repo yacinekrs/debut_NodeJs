@@ -1,6 +1,6 @@
 const express = require("express");
 
-const router = express.Router();
+const router = express.Router(); // creer un nouvel objet routeur pour gerer les requete
 
 router.get("/", (req, res, next) => {
   //use nous permet d'ajouter une nouvelle fonction middelware
