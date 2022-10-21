@@ -16,4 +16,4 @@ router.post("/ajout-produit", (req, res, next) => {
   res.redirect("/");
 });
 
-module.exports = router;
+module.exports = router;// il nous permet d'importer les routes sur dautre fichier

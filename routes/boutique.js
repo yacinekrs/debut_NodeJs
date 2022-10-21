@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); //importer le package express
 const path = require('path')
 
 const router = express.Router(); // creer un nouvel objet routeur pour gerer les requete
